@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fale Conosco | Soft Pink</title>
+  <title>Contato | Fale Conosco</title>
   <link rel="stylesheet" href="estilo.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -11,13 +11,13 @@
 
   <div class="container">
     <header class="header">
-      <span class="badge">💬 Atendimento Exclusivo</span>
+      <span class="badge">🚀 Atendimento Rápido</span>
       <h1>Fale Conosco</h1>
-      <p>Preencha os campos abaixo e entraremos em contato o mais rápido possível.</p>
+      <p>Preencha os campos abaixo para entrar em contato com nossa equipe.</p>
     </header>
 
     <div class="stats-bar">
-      <div class="stat-icon">💖</div>
+      <div class="stat-icon">📊</div>
       <div class="stat-info">
         <strong>Total de Contatos Cadastrados:</strong>
         <span id="counterDisplay">0 cadastros salvos</span>
@@ -26,14 +26,14 @@
 
     <form id="contactForm" novalidate>
       <div class="grid-2">
-        <!-- 1. Nome -->
+        <!-- 1. Nome (Text) -->
         <div class="form-group" id="group-nome">
           <label for="nome">Nome Completo *</label>
-          <input type="text" id="nome" placeholder="Ex: Maria Silva" required>
+          <input type="text" id="nome" placeholder="Ex: Ana Silva" required>
           <span class="error-msg" id="err-nome">Por favor, informe seu nome completo.</span>
         </div>
 
-        <!-- 2. E-mail -->
+        <!-- 2. E-mail (Email) -->
         <div class="form-group" id="group-email">
           <label for="email">E-mail de Contato *</label>
           <input type="email" id="email" placeholder="nome@exemplo.com" required>
@@ -42,30 +42,30 @@
       </div>
 
       <div class="grid-2">
-        <!-- 3. Telefone -->
+        <!-- 3. Telefone (Tel + Máscara) -->
         <div class="form-group" id="group-telefone">
           <label for="telefone">Telefone / WhatsApp *</label>
           <input type="tel" id="telefone" placeholder="(00) 00000-0000" maxlength="15" required>
           <span class="error-msg" id="err-telefone">Digite um telefone válido com DDD.</span>
         </div>
 
-        <!-- 4. Assunto (Seleção) -->
+        <!-- 4. Assunto (Select) -->
         <div class="form-group" id="group-assunto">
           <label for="assunto">Assunto Principal *</label>
           <select id="assunto" required>
             <option value="">Selecione uma opção...</option>
-            <option value="duvidas">Dúvidas Frequentes</option>
+            <option value="duvidas">Dúvidas Gerais</option>
             <option value="orcamento">Solicitar Orçamento</option>
             <option value="suporte">Suporte Técnico</option>
             <option value="parcerias">Parcerias e Negócios</option>
-            <option value="outros">Outros Assuntos</option>
+            <option value="outros">Outros</option>
           </select>
           <span class="error-msg" id="err-assunto">Selecione o assunto do contato.</span>
         </div>
       </div>
 
       <div class="grid-2">
-        <!-- 5. Data -->
+        <!-- 5. Data (Date) -->
         <div class="form-group" id="group-data">
           <label for="dataRetorno">Data Ideal para Retorno *</label>
           <input type="date" id="dataRetorno" required>
@@ -89,7 +89,7 @@
         </div>
       </div>
 
-      <!-- 7. Mensagem (Área de Texto + Contador) -->
+      <!-- 7. Mensagem (Textarea + Contador) -->
       <div class="form-group" id="group-mensagem">
         <div class="label-row">
           <label for="mensagem">Sua Mensagem *</label>
@@ -119,12 +119,12 @@
   <div class="modal-backdrop" id="modalBackdrop">
     <div class="modal-card">
       <div class="modal-icon">🎉</div>
-      <h2>Mensagem Enviada!</h2>
-      <p>Seus dados foram validados e salvos no localStorage com sucesso.</p>
+      <h2>Cadastro Realizado!</h2>
+      <p>Seus dados foram validados e salvos com sucesso no localStorage.</p>
       
       <div class="saved-preview" id="savedDataPreview"></div>
 
-      <button class="modal-btn" onclick="fecharModal()">Perfeito, fechar!</button>
+      <button class="modal-btn" onclick="fecharModal()">Excelente, fechar!</button>
     </div>
   </div>
 

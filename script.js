@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const charCount = document.getElementById('charCount');
   const counterDisplay = document.getElementById('counterDisplay');
 
-  // Atualizar contador de cadastros ao carregar
+  // Atualizar contador de cadastros ao carregar a página
   atualizarContadorContatos();
 
   // 🏆 1. Máscara no Telefone: (00) 00000-0000
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     charCount.textContent = `${total}/300`;
   });
 
-  // Limpar estado de erro ao digitar/interagir
+  // Limpar mensagens de erro ao interagir com os campos
   const inputs = form.querySelectorAll('input, select, textarea');
   inputs.forEach(input => {
     input.addEventListener('input', () => {
@@ -42,13 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Submissão do Formulário
+  // Validação e Submissão do Formulário
   form.addEventListener('submit', (e) => {
-    e.preventDefault(); // 🚫 Não recarrega a página!
+    e.preventDefault(); // 🚫 Evita o reload da página
 
     let isValid = true;
 
-    // Função de Ajuda para Marcar Erro
     function setError(groupId, hasErr) {
       const group = document.getElementById(groupId);
       if (hasErr) {
@@ -59,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Validações dos 8 campos
+    // Validação dos Campos
     const nome = document.getElementById('nome').value.trim();
     setError('group-nome', nome.length < 3);
 
@@ -85,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const termos = document.getElementById('termos').checked;
     setError('group-termos', !termos);
 
-    // Se estiver tudo correto! 🎉
+    // Se estiver tudo ok ✅
     if (isValid) {
       const formData = {
         id: Date.now(),
@@ -104,10 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
       contatos.push(formData);
       localStorage.setItem('contatos', JSON.stringify(contatos));
 
-      // Exibir Modal de Sucesso + Preview
+      // Exibir Modal de Sucesso + Preview dos dados
       exibirModalSucesso(formData);
 
-      // Limpar formulário e contador de caracteres
+      // Limpar formulário e contador
       form.reset();
       charCount.textContent = '0/300';
 
